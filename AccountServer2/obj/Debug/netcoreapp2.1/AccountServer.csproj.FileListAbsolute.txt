@@ -1,0 +1,14 @@
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp2.1\AccountServer.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp2.1\AccountServer.runtimeconfig.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp2.1\AccountServer.runtimeconfig.dev.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp2.1\AccountServer.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp2.1\AccountServer.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.csprojAssemblyReference.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.RazorAssemblyInfo.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.RazorAssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.RazorTargetAssemblyInfo.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp2.1\AccountServer.pdb

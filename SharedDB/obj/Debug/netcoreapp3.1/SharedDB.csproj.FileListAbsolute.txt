@@ -1,0 +1,13 @@
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\bin\Debug\netcoreapp3.1\SharedDB.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\bin\Debug\netcoreapp3.1\SharedDB.runtimeconfig.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\bin\Debug\netcoreapp3.1\SharedDB.runtimeconfig.dev.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\bin\Debug\netcoreapp3.1\SharedDB.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\bin\Debug\netcoreapp3.1\SharedDB.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.csproj.AssemblyReference.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\SharedDB\obj\Debug\netcoreapp3.1\SharedDB.genruntimeconfig.cache

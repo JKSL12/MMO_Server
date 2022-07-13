@@ -1,0 +1,16 @@
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\MMO_Server.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\MMO_Server.runtimeconfig.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\MMO_Server.runtimeconfig.dev.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\MMO_Server.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\MMO_Server.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\ServerCore.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\bin\Debug\netcoreapp2.1\ServerCore.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.csproj.CopyComplete
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.csproj.AssemblyReference.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\MMO_Server\obj\Debug\netcoreapp2.1\MMO_Server.genruntimeconfig.cache

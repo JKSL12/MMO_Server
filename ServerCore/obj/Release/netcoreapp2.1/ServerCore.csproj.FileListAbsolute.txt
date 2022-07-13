@@ -1,0 +1,8 @@
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\bin\Release\netcoreapp2.1\ServerCore.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\bin\Release\netcoreapp2.1\ServerCore.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\bin\Release\netcoreapp2.1\ServerCore.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\obj\Release\netcoreapp2.1\ServerCore.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\obj\Release\netcoreapp2.1\ServerCore.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\obj\Release\netcoreapp2.1\ServerCore.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\obj\Release\netcoreapp2.1\ServerCore.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\ServerCore\obj\Release\netcoreapp2.1\ServerCore.pdb

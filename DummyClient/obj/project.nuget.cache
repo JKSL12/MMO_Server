@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EtaDXVQnGtiJWPqA+NwKn+Dtwml3QWfzRPT2XsyeDpGLPkstX0SNEI9ZbJR/nfuVT89VQAakbYuF/qtCPjltzA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hyung\\OneDrive\\바탕 화면\\MMO_Server\\DummyClient\\DummyClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hyung\\.nuget\\packages\\google.protobuf\\3.13.0\\google.protobuf.3.13.0.nupkg.sha512",
+    "C:\\Users\\hyung\\.nuget\\packages\\system.memory\\4.5.2\\system.memory.4.5.2.nupkg.sha512",
+    "C:\\Users\\hyung\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

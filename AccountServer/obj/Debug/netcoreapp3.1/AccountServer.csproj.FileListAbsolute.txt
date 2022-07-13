@@ -1,0 +1,154 @@
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.exe
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csprojAssemblyReference.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.AssemblyInfoInputs.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.AssemblyInfo.cs
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.RazorTargetAssemblyInfo.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\staticwebassets\AccountServer.StaticWebAssets.Manifest.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\staticwebassets\AccountServer.StaticWebAssets.xml
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csproj.CopyComplete
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.deps.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.runtimeconfig.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.runtimeconfig.dev.json
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.pdb
+C:\Rookiss\MMO_Game\Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.dll
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.pdb
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.genruntimeconfig.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csproj.CoreCompileInputs.cache
+C:\Rookiss\MMO_Game\Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.exe
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.runtimeconfig.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.runtimeconfig.dev.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\AccountServer.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csproj.AssemblyReference.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\staticwebassets\AccountServer.StaticWebAssets.Manifest.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\staticwebassets\AccountServer.StaticWebAssets.xml
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\scopedcss\bundle\AccountServer.styles.css
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.RazorTargetAssemblyInfo.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.csproj.CopyComplete
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\obj\Debug\netcoreapp3.1\AccountServer.genruntimeconfig.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\SharedDB.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\SharedDB.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.CommandLine.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.UserSecrets.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Debug.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.EventLog.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.EventSource.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\Microsoft.Win32.Registry.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Diagnostics.EventLog.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Diagnostics.EventLog.Messages.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Diagnostics.EventLog.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\AccountServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll

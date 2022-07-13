@@ -1,0 +1,13 @@
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\bin\PacketGenerator2.deps.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\bin\PacketGenerator2.runtimeconfig.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\bin\PacketGenerator2.runtimeconfig.dev.json
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\bin\PacketGenerator2.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\bin\PacketGenerator2.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.csproj.CoreCompileInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.AssemblyInfoInputs.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.AssemblyInfo.cs
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.dll
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.pdb
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.csproj.AssemblyReference.cache
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hyung\OneDrive\바탕 화면\MMO_Server\PacketGenerator2\obj\Debug\PacketGenerator2.genruntimeconfig.cache
