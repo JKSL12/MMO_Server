@@ -30,6 +30,8 @@ enum MsgId {
   C_PONG = 22;
   C_PLAYER_KILL = 23;
   S_INCREASE_EXP = 24;
+  C_USE_ITEM = 25;
+  S_USE_ITEM = 26;
 }
 
 enum CreatureState {
@@ -193,6 +195,17 @@ message S_IncreaseExp {
   bool levelUp = 2;
   int32 level = 3;
   int32 totalExp = 4;
+}
+
+message C_UseItem {
+  int32 itemDbId = 1;
+  int32 templateId = 2;
+  int32 useNum = 3;
+}
+
+message S_UseItem {
+  int32 itemSlot = 1;
+  int32 itemNum = 2;
 }
 
 message LobbyPlayerInfo {

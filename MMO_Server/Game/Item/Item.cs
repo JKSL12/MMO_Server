@@ -49,6 +49,14 @@ namespace MMO_Server.Game
             ItemType = itemType;
         }
 
+        public void Init()
+        {
+            ItemDbId = 0;
+            TemplateId = 0;
+            Count = 0;
+            Equipped = false;            
+        }
+
         public static Item MakeItem(ItemDb itemDb)
         {
             Item item = null;

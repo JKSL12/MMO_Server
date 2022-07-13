@@ -94,6 +94,47 @@ namespace MMO_Server.Game
             RefreshAdditionalStat();            
         }
 
+        public void HandleUseItem(C_UseItem usePacket)
+        {
+            Item item = Inven.Get(usePacket.ItemDbId);
+            if (item == null) return;
+
+            if (item.ItemType != ItemType.Consumable)
+                return;
+                        
+            Consumable consumeItem = (Consumable)item;
+
+            Console.WriteLine("UseItem");
+
+            {
+                if (item.Count - usePacket.UseNum < 0) return;
+
+                Console.WriteLine($"{item.Count}, {usePacket.UseNum}");
+
+                item.Count = item.Count - usePacket.UseNum;
+
+                if( item.Count <= 0 )
+                {
+                    item.Init();
+                }
+
+                bool result = DbTransaction.UseItemNoti(this, item);
+
+                if (result)
+                {
+                    S_UseItem useItem = new S_UseItem();
+                    useItem.ItemSlot = consumeItem.Info.Slot;
+                    useItem.ItemNum = item.Count;
+                    Session.Send(useItem);
+
+                    if( consumeItem.ConsumableType == ConsumableType.Potion )
+                    {
+                        //
+                    }
+                }
+            }
+        }
+
         public void RefreshAdditionalStat()
         {
             WeaponDamage = 0;

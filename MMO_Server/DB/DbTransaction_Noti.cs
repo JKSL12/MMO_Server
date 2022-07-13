@@ -15,14 +15,16 @@ namespace MMO_Server.DB
             if (player == null || item == null)
                 return;
 
-            int? slot = player.Inven.GetEmptySlot();
-            if (slot == null) return;
+            //int? slot = player.Inven.GetEmptySlot();
+            //if (slot == null) return;
 
             ItemDb itemDb = new ItemDb()
             {
                 ItemDbId = item.ItemDbId,
-                Equipped = item.Equipped
+                Count = item.Count
             };
+
+            Console.WriteLine($"{item.ItemDbId} : {item.Equipped}");
 
             Instance.Push(() =>
             {
@@ -38,6 +40,46 @@ namespace MMO_Server.DB
                     }
                 }
             });
+        }
+
+        public static bool UseItemNoti(Player player, Item item)
+        {
+            if (player == null || item == null)
+                return false;
+
+            //int? slot = player.Inven.GetEmptySlot();
+            //if (slot == null) return;
+
+            ItemDb itemDb = new ItemDb()
+            {
+                ItemDbId = item.ItemDbId,
+                TemplateId = item.TemplateId,
+                Count = item.Count,
+                Equipped = item.Equipped                            
+            };
+
+            bool result = true;
+            
+
+            Instance.Push(() =>
+            {
+                using (AppDbContext db = new AppDbContext())
+                {
+                    db.Entry(itemDb).State = EntityState.Unchanged;
+                    db.Entry(itemDb).Property(nameof(ItemDb.ItemDbId)).IsModified = true;
+                    db.Entry(itemDb).Property(nameof(ItemDb.TemplateId)).IsModified = true;
+                    db.Entry(itemDb).Property(nameof(ItemDb.Count)).IsModified = true;
+                    db.Entry(itemDb).Property(nameof(ItemDb.Equipped)).IsModified = true;
+
+                    bool success = db.SaveChangesEx();
+                    if (!success)
+                    {
+                        result = false;
+                    }
+                }
+            });
+
+            return result;
         }
     }
 }

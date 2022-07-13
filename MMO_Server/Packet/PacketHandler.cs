@@ -108,4 +108,20 @@ class PacketHandler
         ClientSession clientSession = session as ClientSession;
         clientSession.HandlePong();
     }
+
+    public static void C_UseItemHandler(PacketSession session, IMessage packet)
+    {
+        C_UseItem usePacket = (C_UseItem)packet;
+        ClientSession clientSession = session as ClientSession;
+
+        Player player = clientSession.MyPlayer;
+        if (player == null)
+            return;
+
+        GameRoom room = clientSession.MyPlayer.Room;
+        if (room == null)
+            return;
+
+        room.Push(room.HandleUseItem, player, usePacket);
+    }
 }
