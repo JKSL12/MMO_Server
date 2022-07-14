@@ -36,7 +36,8 @@
       "id": "200",
       "name": "HP 물약",
       "consumableType": "Potion",
-      "damage": "10",
+      "maxCount": "100",
+      "life": "10",
       "iconPath": "Textures/Item/hp"
     }
   ]

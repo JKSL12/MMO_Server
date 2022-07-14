@@ -104,32 +104,49 @@ namespace MMO_Server.Game
                         
             Consumable consumeItem = (Consumable)item;
 
-            Console.WriteLine("UseItem");
-
             {
                 if (item.Count - usePacket.UseNum < 0) return;
+                
+                //item.Count = item.Count - usePacket.UseNum;
 
-                Console.WriteLine($"{item.Count}, {usePacket.UseNum}");
+                bool result = false;
 
-                item.Count = item.Count - usePacket.UseNum;
-
-                if( item.Count <= 0 )
+                if (item.Count - usePacket.UseNum <= 0 )
                 {
-                    item.Init();
-                }
+                    result = DbTransaction.DeleteItemNoti(this, item.ItemDbId);
 
-                bool result = DbTransaction.UseItemNoti(this, item);
+                    if (result)
+                    {
+                        item.TemplateId = 0;
+                        item.Count = 0;
+                        item.Equipped = false;
+                    }
+                }
+                else
+                {
+                    result = DbTransaction.UseItemNoti(this, item.ItemDbId, (item.Count - usePacket.UseNum));
+
+                    if(result)
+                    {
+                        item.Count = (item.Count - usePacket.UseNum);
+                    }
+                }
 
                 if (result)
                 {
                     S_UseItem useItem = new S_UseItem();
-                    useItem.ItemSlot = consumeItem.Info.Slot;
+                    useItem.ItemSlot = item.Info.Slot;
                     useItem.ItemNum = item.Count;
                     Session.Send(useItem);
 
                     if( consumeItem.ConsumableType == ConsumableType.Potion )
                     {
-                        //
+                        Stat.Hp = Math.Min(Stat.Hp += consumeItem.Life, Stat.MaxHp);
+
+                        S_ChangeHp changePacket = new S_ChangeHp();
+                        changePacket.ObjectId = Id;
+                        changePacket.Hp = Stat.Hp;
+                        Room.Broadcast(CellPos, changePacket);
                     }
                 }
             }

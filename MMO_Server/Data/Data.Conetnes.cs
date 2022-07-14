@@ -94,6 +94,7 @@ namespace MMO_Server.Data
     {
         public ConsumableType consumableType;
         public int maxCount;
+        public int life;
     }
 
     [Serializable]

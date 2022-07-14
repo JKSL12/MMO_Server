@@ -4,6 +4,7 @@ using MMO_Server.Data;
 using MMO_Server.Game;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MMO_Server.DB
@@ -42,21 +43,49 @@ namespace MMO_Server.DB
             });
         }
 
-        public static bool UseItemNoti(Player player, Item item)
+        public static bool DeleteItemNoti(Player player, int itemDbId)
         {
-            if (player == null || item == null)
+            if (player == null || itemDbId <= 0)
+                return false;
+
+            bool result = true;
+
+            Instance.Push(() =>
+            {
+                using (AppDbContext db = new AppDbContext())
+                {
+                    ItemDb item = db.Items
+                        .Where(i => i.ItemDbId == itemDbId).FirstOrDefault();
+
+                    if (item != null)
+                    {
+                        item.TemplateId = 0;
+                        item.Count = 0;
+                        item.Equipped = false;
+                        bool success = db.SaveChangesEx();
+
+                        if (!success)
+                        {
+                            result = false;
+                        }
+                    }
+                }
+            });
+
+            return result;
+        }
+
+        public static bool UseItemNoti(Player player, int itemDbId, int itemnum)
+        {
+            if (player == null || itemDbId <= 0 || itemnum <= 0)
                 return false;
 
             //int? slot = player.Inven.GetEmptySlot();
             //if (slot == null) return;
 
-            ItemDb itemDb = new ItemDb()
-            {
-                ItemDbId = item.ItemDbId,
-                TemplateId = item.TemplateId,
-                Count = item.Count,
-                Equipped = item.Equipped                            
-            };
+            ItemDb itemDb = new ItemDb();
+            itemDb.ItemDbId = itemDbId;
+            itemDb.Count = itemnum;
 
             bool result = true;
             
@@ -66,12 +95,10 @@ namespace MMO_Server.DB
                 using (AppDbContext db = new AppDbContext())
                 {
                     db.Entry(itemDb).State = EntityState.Unchanged;
-                    db.Entry(itemDb).Property(nameof(ItemDb.ItemDbId)).IsModified = true;
-                    db.Entry(itemDb).Property(nameof(ItemDb.TemplateId)).IsModified = true;
                     db.Entry(itemDb).Property(nameof(ItemDb.Count)).IsModified = true;
-                    db.Entry(itemDb).Property(nameof(ItemDb.Equipped)).IsModified = true;
 
                     bool success = db.SaveChangesEx();
+
                     if (!success)
                     {
                         result = false;

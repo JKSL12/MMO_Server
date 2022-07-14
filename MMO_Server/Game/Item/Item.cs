@@ -150,6 +150,7 @@ namespace MMO_Server.Game
     {
         public ConsumableType ConsumableType { get; private set; }
         public int MaxCount { get; private set; }
+        public int Life { get; private set; }
 
         public Consumable(int templateId) : base(ItemType.Consumable)
         {
@@ -169,6 +170,7 @@ namespace MMO_Server.Game
                 ConsumableType = data.consumableType;
                 MaxCount = data.maxCount;
                 Stackable = (data.maxCount > 1);
+                Life = data.life;
             }
         }
     }
