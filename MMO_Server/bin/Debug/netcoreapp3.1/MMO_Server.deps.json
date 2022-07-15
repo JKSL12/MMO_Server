@@ -9,6 +9,7 @@
       "MMO_Server/1.0.0": {
         "dependencies": {
           "Google.Protobuf": "3.12.3",
+          "Microsoft.EntityFrameworkCore.Design": "3.1.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.8",
           "Microsoft.Extensions.Logging.Console": "3.1.8",

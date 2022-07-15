@@ -32,6 +32,11 @@ namespace MMO_Server.DB
         public float Speed { get; set; }
         public int TotalExp { get; set; }
         public int MapId { get; set; }
+        public int Str { get; set; }
+        public int Dex { get; set; }
+        public int Mag { get; set; }
+        public int Vit { get; set; }
+        public int BonusPoint { get; set; }
     }
 
     [Table("Item")]

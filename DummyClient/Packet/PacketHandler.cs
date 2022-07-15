@@ -153,4 +153,44 @@ class PacketHandler
         C_Pong pongPacket = new C_Pong();
 
     }
+
+    public static void S_IncreaseExpHandler(PacketSession session, IMessage packet)
+    {
+        //S_IncreaseExp increaseExpPacket = (S_IncreaseExp)packet;
+
+        //GameObject go = Managers.Object.FindById(increaseExpPacket.ObjectId);
+
+        //if (go == null) return;
+
+        //PlayerController pc = go.GetComponent<PlayerController>();
+
+        //if (pc != null)
+        //{
+        //    pc.Stat.Level = increaseExpPacket.Level;
+        //    pc.Stat.TotalExp = increaseExpPacket.TotalExp;
+
+        //    if (increaseExpPacket.LevelUp)
+        //        pc.LevelUp();
+
+        //    UI_GameScene gameSceneUI = Managers.UI.SceneUI as UI_GameScene;
+        //    gameSceneUI.statUI.RefreshUI();
+        //}
+    }
+
+    public static void S_UseItemHandler(PacketSession session, IMessage packet)
+    {
+        //S_UseItem usePacket = (S_UseItem)packet;
+
+        //Managers.Inven.SetFindItemSlot(usePacket.ItemSlot, usePacket.ItemNum);
+
+        //UI_GameScene gameSceneUI = Managers.UI.SceneUI as UI_GameScene;
+        //UI_Inventory invenUI = gameSceneUI.InvenUI;
+        //invenUI.RefreshUI();
+        //gameSceneUI.equipUI.RefreshUI();
+    }
+
+    public static void S_StatPlusminusHandler(PacketSession session, IMessage packet)
+    {
+        //Debug.Log("Sibal");
+    }
 }

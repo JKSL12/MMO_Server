@@ -111,6 +111,11 @@ namespace MMO_Server
                     if( findPlayer != null )
                     {
                         MyPlayer.Info.PosInfo.MapId = findPlayer.MapId;
+                        MyPlayer.Stat.Str = findPlayer.Str;
+                        MyPlayer.Stat.Dex = findPlayer.Dex;
+                        MyPlayer.Stat.Mag = findPlayer.Mag;
+                        MyPlayer.Stat.Vit = findPlayer.Vit;
+                        MyPlayer.Stat.BonusStat = findPlayer.BonusPoint;
                     }
 
                     foreach (ItemDb itemDb in items)
@@ -167,6 +172,10 @@ namespace MMO_Server
                         Speed = stat.Speed,
                         TotalExp = 0,
                         MapId = 1,
+                        Str = 5,
+                        Dex = 5,
+                        Mag = 5,
+                        Vit = 5,
                         AccountDbId = AccountDbId
                     };
 

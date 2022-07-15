@@ -58,7 +58,9 @@ class PacketManager
 		_onRecv.Add((ushort)MsgId.SIncreaseExp, MakePacket<S_IncreaseExp>);
 		_handler.Add((ushort)MsgId.SIncreaseExp, PacketHandler.S_IncreaseExpHandler);		
 		_onRecv.Add((ushort)MsgId.SUseItem, MakePacket<S_UseItem>);
-		_handler.Add((ushort)MsgId.SUseItem, PacketHandler.S_UseItemHandler);
+		_handler.Add((ushort)MsgId.SUseItem, PacketHandler.S_UseItemHandler);		
+		_onRecv.Add((ushort)MsgId.SStatPlusminus, MakePacket<S_StatPlusminus>);
+		_handler.Add((ushort)MsgId.SStatPlusminus, PacketHandler.S_StatPlusminusHandler);
 	}
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)

@@ -124,4 +124,15 @@ class PacketHandler
 
         room.Push(room.HandleUseItem, player, usePacket);
     }
+
+    public static void C_StatPlusminusHandler(PacketSession session, IMessage packet)
+    {
+        C_StatPlusminus statPacket = (C_StatPlusminus)packet;
+        ClientSession clientSession = session as ClientSession;
+
+        Player player = clientSession.MyPlayer;
+        if (player == null)
+            return;
+        player.HandleStatPlusMinus(statPacket);
+    }
 }

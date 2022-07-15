@@ -22,7 +22,8 @@ namespace MMO_Server.DB
             ItemDb itemDb = new ItemDb()
             {
                 ItemDbId = item.ItemDbId,
-                Count = item.Count
+                //Count = item.Count
+                Equipped = item.Equipped
             };
 
             Console.WriteLine($"{item.ItemDbId} : {item.Equipped}");

@@ -152,6 +152,80 @@ namespace MMO_Server.Game
             }
         }
 
+        public void HandleStatPlusMinus(C_StatPlusminus statPacket)
+        {
+            if ( statPacket.Plus == true )
+            {                
+                if (Stat.BonusStat <= 0) return;
+
+                DbTransaction.IncreaseStat(this, statPacket.StatType, statPacket.StatNum);
+            }
+            else
+            {
+                switch (statPacket.StatType)
+                {
+                    case 1:
+                        {
+                            if (Stat.Str <= 5) return;
+                        }
+                        break;
+                    case 2:
+                        {
+                            if (Stat.Dex <= 5) return;
+                        }
+                        break;
+                    case 3:
+                        {
+                            if (Stat.Mag <= 5) return;
+                        }
+                        break;
+                    case 4:
+                        {
+                            if (Stat.Vit <= 5) return;
+                        }
+                        break;
+                }
+
+                DbTransaction.DecreaseStat(this, statPacket.StatType, statPacket.StatNum);
+            }
+
+            
+
+            //PlayerDb playerDb = new PlayerDb();
+
+            //playerDb.PlayerDbId = player.PlayerDbId;
+            //playerDb.Level = level;
+            //playerDb.TotalExp = curexp;
+            //playerDb.BonusPoint = bonusStat;
+
+            //Instance.Push(() =>
+            //{
+            //    using (AppDbContext db = new AppDbContext())
+            //    {
+            //        db.Entry(playerDb).State = EntityState.Unchanged;
+            //        db.Entry(playerDb).Property(nameof(PlayerDb.Level)).IsModified = true;
+            //        db.Entry(playerDb).Property(nameof(PlayerDb.TotalExp)).IsModified = true;
+            //        db.Entry(playerDb).Property(nameof(PlayerDb.BonusPoint)).IsModified = true;
+            //        bool success = db.SaveChangesEx();
+            //        if (success)
+            //        {
+            //            player.Stat.Level = level;
+            //            player.Stat.TotalExp = curexp;
+
+            //            S_IncreaseExp increaseExpPacket = new S_IncreaseExp();
+            //            increaseExpPacket.ObjectId = player.Id;
+            //            increaseExpPacket.LevelUp = result == 2 ? true : false;
+            //            increaseExpPacket.Level = level;
+            //            increaseExpPacket.TotalExp = curexp;
+
+            //            player.Session.Send(increaseExpPacket);
+            //            Console.WriteLine($"{increaseExpPacket.Level}, {increaseExpPacket.TotalExp}");
+            //            //room.Push(() => Console.WriteLine($"Hp Saved({playerDb.Hp})"));
+            //        }
+            //    }
+            //});
+        }
+        
         public void RefreshAdditionalStat()
         {
             WeaponDamage = 0;
