@@ -345,6 +345,14 @@ namespace MMO_Server.Game
             //}
         }
 
+        public void BroadcastRoomAllPlayer(IMessage packet)
+        {
+            foreach (Player p in _players.Values)
+            {                
+                p.Session.Send(packet);
+            }
+        }
+
         public List<Player> GetAdjacentPlayers(Vector2Int pos, int range)
         {
             List<Zone> zones = GetAdjacentZones(pos, range);

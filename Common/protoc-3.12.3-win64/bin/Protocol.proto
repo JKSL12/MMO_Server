@@ -34,6 +34,8 @@ enum MsgId {
   S_USE_ITEM = 26;
   C_STAT_PLUSMINUS = 27;
   S_STAT_PLUSMINUS = 28;
+  C_CHAT = 29;
+  S_CHAT = 30;
 }
 
 enum CreatureState {
@@ -221,6 +223,16 @@ message S_StatPlusminus {
   int32 statType = 1;
   int32 statNum = 2;  
   int32 bonusStat = 3;
+}
+
+message C_Chat {
+  int32 chatType = 1;
+  string chatMsg = 2;
+}
+
+message S_Chat {
+  int32 obejctId = 1;
+  string chatMsg = 2;
 }
 
 message LobbyPlayerInfo {

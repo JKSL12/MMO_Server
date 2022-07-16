@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -71,6 +72,14 @@ namespace MMO_Server.Game
                     return room;
 
                 return null;
+            }
+        }
+
+        public void BroadcastAllMapAllPlayer(IMessage packet)
+        {
+            foreach(GameRoom r in _rooms.Values)
+            {
+                r.BroadcastRoomAllPlayer(packet);
             }
         }
     }

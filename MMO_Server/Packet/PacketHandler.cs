@@ -135,4 +135,48 @@ class PacketHandler
             return;
         player.HandleStatPlusMinus(statPacket);
     }
+
+    public static void C_ChatHandler(PacketSession session, IMessage packet)
+    {
+        C_Chat chatPacket = (C_Chat)packet;
+        ClientSession clientSession = session as ClientSession;
+
+        Player player = clientSession.MyPlayer;
+        if (player == null)
+            return;
+
+        GameRoom room = clientSession.MyPlayer.Room;
+        if (room == null)
+            return;
+
+        string type = "";
+        switch(chatPacket.ChatType)
+        {
+            case 0:
+                type = "[전체] ";
+                break;
+            case 1:
+                type = "[지역] ";
+                break;
+        }
+        
+        string name = player.Info.Name;
+
+        string msg = type + name + " : " + chatPacket.ChatMsg;
+
+        S_Chat chat = new S_Chat();
+        chat.ObejctId = player.Info.ObjectId;
+        chat.ChatMsg = msg;
+
+        Console.WriteLine($"chatrecv : {msg}");
+        switch (chatPacket.ChatType)
+        {
+            case 0:
+                GameLogic.Instance.BroadcastAllMapAllPlayer(chat);
+                break;
+            case 1:
+                room.BroadcastRoomAllPlayer(chat);
+                break;
+        }
+    }
 }
