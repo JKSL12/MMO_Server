@@ -23,5 +23,12 @@ namespace MMO_Server.Game
 
             player.HandleUseItem(usePacket);
         }
+
+        public void HandleDropItem(Player player, C_DropItem dropPacket)
+        {
+            if (player == null) return;
+
+            player.HandleDropItem(dropPacket);
+        }
     }
 }

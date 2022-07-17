@@ -152,7 +152,30 @@ namespace MMO_Server.Game
             }
         }
 
-        public void HandleStatPlusMinus(C_StatPlusminus statPacket)
+        public void HandleDropItem(C_DropItem dropPacket)
+        {
+            Item item = Inven.Get(dropPacket.ItemDbId);
+            if (item == null) return;
+
+            bool result = false;
+
+            result = DbTransaction.DeleteItemNoti(this, item.ItemDbId);
+
+            if (result)
+            {
+                item.TemplateId = 0;
+                item.Count = 0;
+                item.Equipped = false;
+
+                S_UseItem useItem = new S_UseItem();
+                useItem.ItemSlot = item.Info.Slot;
+                useItem.ItemNum = item.Count;
+                Session.Send(useItem);
+            }
+        }
+
+
+            public void HandleStatPlusMinus(C_StatPlusminus statPacket)
         {
             if ( statPacket.Plus == true )
             {                

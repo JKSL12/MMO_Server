@@ -179,4 +179,20 @@ class PacketHandler
                 break;
         }
     }
+
+    public static void C_DropItemHandler(PacketSession session, IMessage packet)
+    {
+        C_DropItem dropPacket = (C_DropItem)packet;
+        ClientSession clientSession = session as ClientSession;
+
+        Player player = clientSession.MyPlayer;
+        if (player == null)
+            return;
+
+        GameRoom room = clientSession.MyPlayer.Room;
+        if (room == null)
+            return;
+
+        room.Push(room.HandleDropItem, player, dropPacket);
+    }
 }

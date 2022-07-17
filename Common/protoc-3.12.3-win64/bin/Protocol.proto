@@ -36,6 +36,7 @@ enum MsgId {
   S_STAT_PLUSMINUS = 28;
   C_CHAT = 29;
   S_CHAT = 30;
+  C_DROP_ITEM = 31;
 }
 
 enum CreatureState {
@@ -233,6 +234,12 @@ message C_Chat {
 message S_Chat {
   int32 obejctId = 1;
   string chatMsg = 2;
+}
+
+message C_DropItem {
+  int32 itemDbId = 1;
+  int32 templateId = 2;
+  int32 slot = 3;
 }
 
 message LobbyPlayerInfo {
