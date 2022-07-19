@@ -175,7 +175,47 @@ namespace MMO_Server.Game
         }
 
 
-            public void HandleStatPlusMinus(C_StatPlusminus statPacket)
+        public void HandleMoveItem(C_MoveItem itemMove)
+        {
+            Item item = Inven.Get(itemMove.ItemDbId);
+            if (item == null) return;
+
+            Item targetItem = null;
+
+            targetItem = Inven.Find(i => i.Slot == itemMove.TargetSlot);
+            
+            bool result = DbTransaction.MoveItemNoti(this, item.Slot, itemMove.TargetSlot);
+
+            int slot = item.Slot;
+            
+            if(result)
+            {
+                if (targetItem != null)
+                {
+                    Console.WriteLine($"MoveItem1 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");
+
+                    int tempSlot = item.Slot;
+                    item.Slot = targetItem.Slot;
+                    targetItem.Slot = tempSlot;
+
+
+                    Console.WriteLine($"MoveItem2 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");
+
+                    S_MoveItem moveItem = new S_MoveItem();
+                    moveItem.OriginSlot = item.Slot;
+                    moveItem.DestSlot = targetItem.Slot;
+                    Session.Send(moveItem);
+                }
+                else
+                {
+                    Console.WriteLine("noitem");
+                }
+            }
+            
+        }
+
+
+        public void HandleStatPlusMinus(C_StatPlusminus statPacket)
         {
             if ( statPacket.Plus == true )
             {                

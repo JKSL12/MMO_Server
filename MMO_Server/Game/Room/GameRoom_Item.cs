@@ -30,5 +30,12 @@ namespace MMO_Server.Game
 
             player.HandleDropItem(dropPacket);
         }
+
+        public void HandleMoveItem(Player player, C_MoveItem moveItem)
+        {
+            if (player == null) return;
+
+            player.HandleMoveItem(moveItem);
+        }
     }
 }

@@ -52,4 +52,10 @@ namespace MMO_Server.DB
         public int? OwnerDbId { get; set; }
         public PlayerDb Owner { get; set; }
     }
+
+    [Table("EquipItem")]
+    public class EquipItemDb
+    {
+
+    }
 }

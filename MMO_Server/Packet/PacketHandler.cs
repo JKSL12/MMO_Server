@@ -195,4 +195,20 @@ class PacketHandler
 
         room.Push(room.HandleDropItem, player, dropPacket);
     }
+
+    public static void C_MoveItemHandler(PacketSession session, IMessage packet)
+    {
+        C_MoveItem itemMove = (C_MoveItem)packet;
+        ClientSession clientSession = session as ClientSession;
+
+        Player player = clientSession.MyPlayer;
+        if (player == null)
+            return;
+
+        GameRoom room = clientSession.MyPlayer.Room;
+        if (room == null)
+            return;
+
+        room.Push(room.HandleMoveItem, player, itemMove);
+    }
 }

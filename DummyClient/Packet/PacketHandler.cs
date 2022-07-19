@@ -193,4 +193,19 @@ class PacketHandler
     {
         //Debug.Log("Sibal");
     }
+
+    public static void S_ChatHandler(PacketSession session, IMessage packet)
+    {
+
+    }
+
+    public static void S_MoveItemHandler(PacketSession session, IMessage packet)
+    {
+
+    }
+
+    public static void S_ChangeSlotItemHandler(PacketSession session, IMessage packet)
+    {
+
+    }
 }

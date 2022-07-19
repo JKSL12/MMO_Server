@@ -37,6 +37,8 @@ enum MsgId {
   C_CHAT = 29;
   S_CHAT = 30;
   C_DROP_ITEM = 31;
+  C_MOVE_ITEM = 32;
+  S_MOVE_ITEM = 33;
 }
 
 enum CreatureState {
@@ -240,6 +242,16 @@ message C_DropItem {
   int32 itemDbId = 1;
   int32 templateId = 2;
   int32 slot = 3;
+}
+
+message C_MoveItem {
+  int32 itemDbId = 1;
+  int32 targetSlot = 2;
+}
+
+message S_MoveItem {
+  int32 originSlot = 1;
+  int32 destSlot = 2;
 }
 
 message LobbyPlayerInfo {

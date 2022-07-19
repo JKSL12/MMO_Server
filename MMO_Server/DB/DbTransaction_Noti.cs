@@ -76,6 +76,46 @@ namespace MMO_Server.DB
             return result;
         }
 
+        public static bool MoveItemNoti(Player player, int Slot, int targetSlot)
+        {
+            if (player == null || (Slot < 0 || Slot >= 20) || (targetSlot < 0 || targetSlot >= 20))
+                return false;
+
+            
+            bool result = true;
+
+            Instance.Push(() =>
+            {
+                using (AppDbContext db = new AppDbContext())
+                {
+                    ItemDb item = db.Items
+                        .Where(i => i.Slot == Slot).FirstOrDefault();
+
+                    if (item != null)
+                    {
+                        ItemDb targetItem = db.Items
+                        .Where(i => i.Slot == targetSlot).FirstOrDefault();
+
+                        if (targetItem != null )
+                        {
+                            int tempSlot = item.Slot;
+                            item.Slot = targetItem.Slot;
+                            targetItem.Slot = tempSlot;
+                        }
+                        bool success = db.SaveChangesEx();
+
+                        if (!success)
+                        {
+                            result = false;
+                        }
+                    }
+                }
+            });            
+
+            return result;
+        }
+            
+
         public static bool UseItemNoti(Player player, int itemDbId, int itemnum)
         {
             if (player == null || itemDbId <= 0 || itemnum <= 0)
