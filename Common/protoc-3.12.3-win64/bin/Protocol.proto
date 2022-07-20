@@ -175,12 +175,12 @@ message S_AddItem {
 }
 
 message C_EquipItem {
-  int32 itemDbId = 1;
+  int32 slot = 1;
   bool equipped = 2;
 }
 
 message S_EquipItem {
-  int32 itemDbId = 1;
+  int32 slot = 1;
   bool equipped = 2;
 }
 
@@ -206,9 +206,8 @@ message S_IncreaseExp {
 }
 
 message C_UseItem {
-  int32 itemDbId = 1;
-  int32 templateId = 2;
-  int32 useNum = 3;
+  int32 slot = 1;
+  int32 useNum = 2;
 }
 
 message S_UseItem {
@@ -239,14 +238,13 @@ message S_Chat {
 }
 
 message C_DropItem {
-  int32 itemDbId = 1;
-  int32 templateId = 2;
-  int32 slot = 3;
+  int32 slot = 1;
+  int32 itemNum = 2;
 }
 
 message C_MoveItem {
-  int32 itemDbId = 1;
-  int32 targetSlot = 2;
+  int32 originSlot = 1;
+  int32 destSlot = 2;
 }
 
 message S_MoveItem {

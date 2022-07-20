@@ -46,7 +46,7 @@ namespace MMO_Server.Game
 
         public void HandleEquipItem(C_EquipItem equipPacket)
         {
-            Item item = Inven.Get(equipPacket.ItemDbId);
+            Item item = Inven.Get(equipPacket.Slot);
             if (item == null) return;
 
             if (item.ItemType == ItemType.Consumable)
@@ -74,7 +74,7 @@ namespace MMO_Server.Game
                     DbTransaction.EquipItemNoti(this, unequipItem);
 
                     S_EquipItem equipOkItem = new S_EquipItem();
-                    equipOkItem.ItemDbId = unequipItem.ItemDbId;
+                    equipOkItem.Slot = unequipItem.Slot;
                     equipOkItem.Equipped = unequipItem.Equipped;
                     Session.Send(equipOkItem);
                 }
@@ -86,7 +86,7 @@ namespace MMO_Server.Game
                 DbTransaction.EquipItemNoti(this, item);
 
                 S_EquipItem equipOkItem = new S_EquipItem();
-                equipOkItem.ItemDbId = equipPacket.ItemDbId;
+                equipOkItem.Slot = equipPacket.Slot;
                 equipOkItem.Equipped = equipPacket.Equipped;
                 Session.Send(equipOkItem);
             }
@@ -96,7 +96,7 @@ namespace MMO_Server.Game
 
         public void HandleUseItem(C_UseItem usePacket)
         {
-            Item item = Inven.Get(usePacket.ItemDbId);
+            Item item = Inven.Get(usePacket.Slot);
             if (item == null) return;
 
             if (item.ItemType != ItemType.Consumable)
@@ -154,7 +154,7 @@ namespace MMO_Server.Game
 
         public void HandleDropItem(C_DropItem dropPacket)
         {
-            Item item = Inven.Get(dropPacket.ItemDbId);
+            Item item = Inven.Get(dropPacket.Slot);
             if (item == null) return;
 
             bool result = false;
@@ -177,14 +177,16 @@ namespace MMO_Server.Game
 
         public void HandleMoveItem(C_MoveItem itemMove)
         {
-            Item item = Inven.Get(itemMove.ItemDbId);
+            Item item = Inven.Get(itemMove.OriginSlot);
+            Console.WriteLine($"Move Item {itemMove.OriginSlot}, {itemMove.DestSlot}");
             if (item == null) return;
 
             Item targetItem = null;
 
-            targetItem = Inven.Find(i => i.Slot == itemMove.TargetSlot);
+            //targetItem = Inven.Find(i => i.Slot == itemMove.DestSlot);
+            targetItem = Inven.Get(itemMove.DestSlot);
             
-            bool result = DbTransaction.MoveItemNoti(this, item.Slot, itemMove.TargetSlot);
+            bool result = DbTransaction.MoveItemNoti(this, item.Slot, itemMove.DestSlot);
 
             int slot = item.Slot;
             
@@ -194,9 +196,12 @@ namespace MMO_Server.Game
                 {
                     Console.WriteLine($"MoveItem1 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");
 
-                    int tempSlot = item.Slot;
-                    item.Slot = targetItem.Slot;
-                    targetItem.Slot = tempSlot;
+                    item.Slot = itemMove.DestSlot;
+                    targetItem.Slot = itemMove.OriginSlot;
+
+                    //int tempSlot = item.Slot;
+                    //item.Slot = targetItem.Slot;
+                    //targetItem.Slot = tempSlot;
 
 
                     Console.WriteLine($"MoveItem2 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");

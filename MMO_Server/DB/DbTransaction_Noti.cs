@@ -98,9 +98,12 @@ namespace MMO_Server.DB
 
                         if (targetItem != null )
                         {
-                            int tempSlot = item.Slot;
-                            item.Slot = targetItem.Slot;
-                            targetItem.Slot = tempSlot;
+                            item.Slot = targetSlot;
+                            targetItem.Slot = Slot;
+
+                            //int tempSlot = item.Slot;
+                            //item.Slot = targetItem.Slot;
+                            //targetItem.Slot = tempSlot;
                         }
                         bool success = db.SaveChangesEx();
 

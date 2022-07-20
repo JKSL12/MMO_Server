@@ -4,6 +4,7 @@ using MMO_Server.Data;
 using MMO_Server.Game;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MMO_Server.DB
@@ -347,8 +348,6 @@ namespace MMO_Server.DB
                     result = 1;
                 }
 
-                Console.WriteLine($"{result}, {level}, {curexp}, {bonusStat}");
-
                 PlayerDb playerDb = new PlayerDb();
 
                 playerDb.PlayerDbId = player.PlayerDbId;
@@ -391,42 +390,101 @@ namespace MMO_Server.DB
             if (player == null || rewardData == null || room == null)
                 return;
 
-            int? slot = player.Inven.GetEmptySlot();
-            if (slot == null) return;
-
-            ItemDb itemDb = new ItemDb()
-            {
-                TemplateId = rewardData.itemId,
-                Count = rewardData.count,
-                Slot = slot.Value,
-                OwnerDbId = player.PlayerDbId
-            };
+            int? slot = player.Inven.GetEmptySlot(rewardData.itemId, rewardData.count);            
+            if (slot == null) return;                      
 
             Instance.Push(() =>
             {
                 using (AppDbContext db = new AppDbContext())
                 {
-                    db.Items.Add(itemDb);
-                    bool success = db.SaveChangesEx();
-                    if (success)
+                    ItemDb item = db.Items
+                        .Where(i => i.Slot == slot).FirstOrDefault();
+                    
+                    if (item != null)
                     {
-                        room.Push(() =>
+                        item.TemplateId = rewardData.itemId;
+                        item.Count = item.Count + rewardData.count;
+                        item.OwnerDbId = player.PlayerDbId;
+
+                        Console.WriteLine($"reward {item.TemplateId}, {item.Count}, {item.Slot}");
+                        bool success = db.SaveChangesEx();
+
+                        if (success)
                         {
-                            Item newItem = Item.MakeItem(itemDb);
-                            player.Inven.Add(newItem);
+                            S_AddItem itemPacket = new S_AddItem();
+                            ItemInfo itemInfo = new ItemInfo();
+                            itemInfo.ItemDbId = item.ItemDbId;
+                            itemInfo.TemplateId = item.TemplateId;
+                            itemInfo.Slot = item.Slot;
+                            itemInfo.Count = item.Count;
+                            itemInfo.Equipped = false;
+                            itemPacket.Items.Add(itemInfo);
 
+                            player.Session.Send(itemPacket);
+                        }
+                    }
+                    else 
+                    {
+                        ItemDb itemDb = new ItemDb()
+                        {
+                            TemplateId = rewardData.itemId,
+                            Count = rewardData.count,
+                            Slot = slot.Value,
+                            OwnerDbId = player.PlayerDbId
+                        };
+
+                        db.Items.Add(itemDb);
+                        bool success = db.SaveChangesEx();
+
+                        if (success)
+                        {
+                            room.Push(() =>
                             {
-                                S_AddItem itemPacket = new S_AddItem();
-                                ItemInfo itemInfo = new ItemInfo();
-                                itemInfo.MergeFrom(newItem.Info);
-                                itemPacket.Items.Add(itemInfo);
+                                Item newItem = Item.MakeItem(itemDb);
+                                //player.Inven.Add(newItem);
+                                player.Inven.Set(newItem);
 
-                                player.Session.Send(itemPacket);
-                            }
-                        });
+                                {
+                                    S_AddItem itemPacket = new S_AddItem();
+                                    ItemInfo itemInfo = new ItemInfo();
+                                    itemInfo.MergeFrom(newItem.Info);
+                                    itemPacket.Items.Add(itemInfo);
+
+                                    player.Session.Send(itemPacket);
+                                }
+                            });
+                        }
                     }
                 }
             });
+
+            //Instance.Push(() =>
+            //{
+            //    using (AppDbContext db = new AppDbContext())
+            //    {
+            //        db.Items.Add(itemDb);
+            //        bool success = db.SaveChangesEx();
+
+            //        if (success)
+            //        {
+            //            room.Push(() =>
+            //            {
+            //                Item newItem = Item.MakeItem(itemDb);
+            //                //player.Inven.Add(newItem);
+            //                player.Inven.Set(newItem);
+
+            //                {
+            //                    S_AddItem itemPacket = new S_AddItem();
+            //                    ItemInfo itemInfo = new ItemInfo();
+            //                    itemInfo.MergeFrom(newItem.Info);
+            //                    itemPacket.Items.Add(itemInfo);
+
+            //                    player.Session.Send(itemPacket);
+            //                }
+            //            });
+            //        }
+            //    }
+            //});
         }
     }
 }

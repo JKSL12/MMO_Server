@@ -10,6 +10,7 @@ namespace MMO_Server.Game
     public class Item
     {
         public ItemInfo Info { get; } = new ItemInfo();
+        public int MaxCount { get; protected set; }
 
         public int ItemDbId
         {
@@ -47,6 +48,8 @@ namespace MMO_Server.Game
         public Item(ItemType itemType)
         {
             ItemType = itemType;
+
+            Init();
         }
 
         public void Init()
@@ -65,7 +68,19 @@ namespace MMO_Server.Game
             DataManager.ItemDict.TryGetValue(itemDb.TemplateId, out itemData);
 
             if (itemData == null)
-                return null;
+            {
+                item = new Item(ItemType.None);
+
+                if (item != null)
+                {
+                    item.ItemDbId = itemDb.ItemDbId;
+                    item.Count = itemDb.Count;
+                    item.Slot = itemDb.Slot;
+                    item.Equipped = itemDb.Equipped;
+                }
+
+                return item;
+            }
 
             switch(itemData.itemType)
             {
@@ -89,7 +104,34 @@ namespace MMO_Server.Game
             }
 
             return item;
-        }        
+        }      
+        
+        public static bool CanStack(int templateId)
+        {
+            ItemData itemData = null;
+            DataManager.ItemDict.TryGetValue(templateId, out itemData);
+
+            if (itemData == null) return false;
+
+            Item item = null;
+
+            switch (itemData.itemType)
+            {
+                case ItemType.Weapon:
+                    item = new Weapon(templateId);
+                    break;
+                case ItemType.Armor:
+                    item = new Armor(templateId);
+                    break;
+                case ItemType.Consumable:
+                    item = new Consumable(templateId);
+                    break;
+            }
+
+            if (item == null) return false;
+
+            return item.Stackable;
+        }
     }
 
     public class Weapon : Item
@@ -148,8 +190,7 @@ namespace MMO_Server.Game
 
     public class Consumable : Item
     {
-        public ConsumableType ConsumableType { get; private set; }
-        public int MaxCount { get; private set; }
+        public ConsumableType ConsumableType { get; private set; }        
         public int Life { get; private set; }
 
         public Consumable(int templateId) : base(ItemType.Consumable)

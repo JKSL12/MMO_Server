@@ -118,11 +118,13 @@ namespace MMO_Server
                         MyPlayer.Stat.BonusStat = findPlayer.BonusPoint;
                     }
 
+                    
                     foreach (ItemDb itemDb in items)
                     {
                         Item item = Item.MakeItem(itemDb);
                         if(item != null)
                         {
+                            //MyPlayer.Inven.Add(item);
                             MyPlayer.Inven.Add(item);
 
                             ItemInfo info = new ItemInfo();
@@ -180,9 +182,43 @@ namespace MMO_Server
                     };
 
                     db.Players.Add(newPlayerDb);
+
                     bool success = db.SaveChangesEx();
                     if (success == false)
+                    {
+                        Console.WriteLine($"Create Char Fail -1");
                         return;
+                    }
+
+                    for (int i = 0; i < 20; ++i)
+                    {
+                        ItemDb itemDb = new ItemDb()
+                        {
+                            TemplateId = 0,
+                            Count = 0,
+                            Slot = i,
+                            Equipped = false,
+                            OwnerDbId = newPlayerDb.PlayerDbId
+                        };
+
+                        db.Items.Add(itemDb);
+
+                        success = db.SaveChangesEx();
+                        if (success == false)
+                        {
+                            Console.WriteLine($"Create Char Fail {i}");
+                            return;
+                        }
+                    }
+
+
+                    //bool success = db.SaveChangesEx();
+                    //if (success == false)
+                    //{
+                    //    Console.WriteLine($"Create Char Fail");
+                    //    return;
+                    //}
+                        
 
                     LobbyPlayerInfo lobbyPlayer = new LobbyPlayerInfo()
                     {
