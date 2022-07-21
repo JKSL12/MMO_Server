@@ -24,11 +24,12 @@ namespace MMO_Server.Game
 
         public void Set(Item newitem)
         {
-            Item item = null;
-            Items.TryGetValue(newitem.Slot, out item);
+            Items[newitem.Slot] = newitem;
+            //Item item = null;
+            //Items.TryGetValue(newitem.Slot, out item);
 
-            if (item != null)
-                item = newitem;
+            //if (item != null)
+            //    item = newitem;
         }
 
         public Item Find(Func<Item, bool> condition)

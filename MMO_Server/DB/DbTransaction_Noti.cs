@@ -75,13 +75,13 @@ namespace MMO_Server.DB
 
             return result;
         }
+                            
 
         public static bool MoveItemNoti(Player player, int Slot, int targetSlot)
         {
             if (player == null || (Slot < 0 || Slot >= 20) || (targetSlot < 0 || targetSlot >= 20))
                 return false;
-
-            
+                        
             bool result = true;
 
             Instance.Push(() =>

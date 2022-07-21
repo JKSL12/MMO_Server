@@ -185,38 +185,41 @@ namespace MMO_Server.Game
 
             //targetItem = Inven.Find(i => i.Slot == itemMove.DestSlot);
             targetItem = Inven.Get(itemMove.DestSlot);
-            
-            bool result = DbTransaction.MoveItemNoti(this, item.Slot, itemMove.DestSlot);
 
-            int slot = item.Slot;
-            
-            if(result)
+            bool result = false;
+            if (item.TemplateId == targetItem.TemplateId)
             {
-                if (targetItem != null)
+
+            }
+            else
+            {
+                DbTransaction.MoveItemNoti(this, item.Slot, itemMove.DestSlot);
+
+                if (result)
                 {
-                    Console.WriteLine($"MoveItem1 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");
+                    if (targetItem != null)
+                    {
+                        item.Slot = itemMove.DestSlot;
+                        targetItem.Slot = itemMove.OriginSlot;
 
-                    item.Slot = itemMove.DestSlot;
-                    targetItem.Slot = itemMove.OriginSlot;
+                        //int tempSlot = item.Slot;
+                        //item.Slot = targetItem.Slot;
+                        //targetItem.Slot = tempSlot;
 
-                    //int tempSlot = item.Slot;
-                    //item.Slot = targetItem.Slot;
-                    //targetItem.Slot = tempSlot;
+                        Inven.Set(item);
+                        Inven.Set(targetItem);
 
-
-                    Console.WriteLine($"MoveItem2 {item.Slot}, {item.TemplateId} / {targetItem.Slot}, {targetItem.TemplateId}");
-
-                    S_MoveItem moveItem = new S_MoveItem();
-                    moveItem.OriginSlot = item.Slot;
-                    moveItem.DestSlot = targetItem.Slot;
-                    Session.Send(moveItem);
-                }
-                else
-                {
-                    Console.WriteLine("noitem");
+                        S_MoveItem moveItem = new S_MoveItem();
+                        moveItem.OriginSlot = item.Slot;
+                        moveItem.DestSlot = targetItem.Slot;
+                        Session.Send(moveItem);
+                    }
+                    else
+                    {
+                        Console.WriteLine("noitem");
+                    }
                 }
             }
-            
         }
 
 
