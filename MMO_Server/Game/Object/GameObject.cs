@@ -119,16 +119,24 @@ namespace MMO_Server.Game
                 return MoveDir.Down;
         }
 
-        public virtual void OnDamaged(GameObject attacker, int damage)
+        public virtual void OnDamaged(GameObject attacker, int damage, bool critical = false)
         {
             if (Room == null) return;
 
             damage = Math.Max((damage - TotalDefence), 0);
+
+            if( critical == true )
+            {
+                damage = damage * 2;
+            }
+
             Stat.Hp = Math.Max(Stat.Hp -= damage, 0);
 
             S_ChangeHp changePacket = new S_ChangeHp();
             changePacket.ObjectId = Id;
             changePacket.Hp = Stat.Hp;
+            changePacket.Damage = damage;
+            changePacket.Critical = critical;
             Room.Broadcast(CellPos, changePacket);
             
             if( Stat.Hp <= 0)

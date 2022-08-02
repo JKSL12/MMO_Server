@@ -28,9 +28,9 @@ namespace MMO_Server.Game
             Vision = new VisionCube(this);
         }
 
-        public override void OnDamaged(GameObject attacker, int damage)
+        public override void OnDamaged(GameObject attacker, int damage, bool critical = false)
         {
-            base.OnDamaged(attacker, damage);           
+            base.OnDamaged(attacker, damage, critical);           
         }
 
         public override void OnDead(GameObject attacker)
