@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.Protocol;
+using MMO_Server.Game;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -189,5 +190,34 @@ namespace MMO_Server.Data
             return dict;
         }
     }
+    #endregion
+
+    #region Event
+
+    [Serializable]
+    public class EventData
+    {
+        public string name;        
+        public DateTime startTime;
+        public DateTime endTime;
+    }
+
+    public class EventLoader : ILoader<int, EventData>
+    {
+        public List<EventData> events = new List<EventData>();
+
+        public Dictionary<int, EventData> MakeDict()
+        {
+            Dictionary<int, EventData> dict = new Dictionary<int, EventData>();
+            int index = 0;
+            foreach (EventData _event in events)
+            {
+                dict.Add(index++, _event);
+                GameLogic.Instance.bEventDate.Add(_event.name, false);
+            }
+            return dict;
+        }
+    }
+
     #endregion
 }

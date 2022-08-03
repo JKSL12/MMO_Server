@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MMO_Server.Data;
 
 namespace MMO_Server.Game
 {
@@ -12,10 +13,41 @@ namespace MMO_Server.Game
        // object _lock = new object();
         Dictionary<int, GameRoom> _rooms = new Dictionary<int, GameRoom>();
         int _roomId = 1;
+        public Dictionary<string, bool> bEventDate = new Dictionary<string, bool>();
+
+        long _eventTimeCheckTick = 0;
 
         public void Update()
         {
             Flush();
+
+            if (_eventTimeCheckTick <= Environment.TickCount)
+            {
+
+                _eventTimeCheckTick = Environment.TickCount + 5000;
+                Console.WriteLine("EVENT CHECK");
+
+                foreach (EventData events in DataManager.EventDict.Values)
+                {
+                    if (bEventDate[events.name] == false)
+                    {
+                        if (DateTime.Compare(events.startTime, DateTime.Now) <= 0 &&
+                            DateTime.Compare(events.endTime, DateTime.Now) > 0)
+                        {
+                            bEventDate[events.name] = true;
+                            Console.WriteLine($"{events.name} On");
+                        }
+                    }
+                    else
+                    {
+                        if (DateTime.Compare(events.endTime, DateTime.Now) <= 0)
+                        {
+                            bEventDate[events.name] = false;
+                            Console.WriteLine($"{events.name} Off");
+                        }
+                    }
+                }
+            }
 
             foreach(GameRoom room in _rooms.Values)
             {
