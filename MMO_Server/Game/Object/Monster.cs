@@ -10,6 +10,8 @@ namespace MMO_Server.Game
     public class Monster : GameObject
     {
         public int TemplateId { get; private set; }
+        public bool Force { get; set; }
+        public int SpawnID { get; set; }
 
         public Monster()
         {
@@ -21,6 +23,7 @@ namespace MMO_Server.Game
         public void Init(int templateId)
         {
             TemplateId = templateId;
+            Force = false;
 
             MonsterData monsterData = null;
             DataManager.MonsterDict.TryGetValue(TemplateId, out monsterData);

@@ -23,6 +23,10 @@ namespace MMO_Server.Game
         public int ZoneCells { get; private set; }
         public Map Map { get; private set; } = new Map();
 
+        public MonsterSpawnData monsterSpawnData = null;
+
+        long _nextCheckTick = 0;            
+        
         public Zone GetZone(Vector2Int cellPos)
         {
             int x = (cellPos.x - Map.MinX) / ZoneCells;
@@ -69,9 +73,11 @@ namespace MMO_Server.Game
             //TestTimer();
         }
 
-        public void Init(string mapName, int zoneCells)
+        public void Init(MapData mapData, int zoneCells)
         {
-            Map.LoadMap(mapName, "../../../../Common/MapData");
+            Console.WriteLine($"Room Add{mapData.name}");
+
+            Map.LoadMap(mapData.name, "../../../../Common/MapData");
 
             ZoneCells = zoneCells;
             int countY = (Map.SizeY + zoneCells - 1) / zoneCells;
@@ -85,17 +91,17 @@ namespace MMO_Server.Game
                 }
             }
 
-            if( string.Compare(mapName, "Beginner_1") == 0 )
-            {
-                // 몬스터 생성
-                for (int i = 0; i < 500; i++)
-                {
-                    Monster monster = ObjectManager.Instance.Add<Monster>();
-                    monster.Init(1);
-                    //monster.cellpos = new vector2int(5, 5);
-                    EnterGame(monster, randomPos: true);
-                }
-            }
+            //if( string.Compare(mapName, "Beginner_1") == 0 )
+            //{
+            //    // 몬스터 생성
+            //    for (int i = 0; i < 500; i++)
+            //    {
+            //        Monster monster = ObjectManager.Instance.Add<Monster>();
+            //        monster.Init(1);
+            //        //monster.cellpos = new vector2int(5, 5);
+            //        EnterGame(monster, randomPos: true);
+            //    }
+            //}
 
 
             //TestTimer();
@@ -111,6 +117,45 @@ namespace MMO_Server.Game
         {
             try
             {
+                Flush();
+
+                if (_nextCheckTick > Environment.TickCount)
+                    return;
+
+                _nextCheckTick = Environment.TickCount + 3000;
+
+                if (monsterSpawnData != null)
+                {
+                    int count = 0;
+
+                    foreach (SpawnData spawnData in monsterSpawnData.infos)
+                    {
+                        count = GetMonsterCount(m => m.Force == false && m.SpawnID == spawnData.spawnid);
+
+                        int maxCount = spawnData.count;
+
+                        if (count < maxCount)
+                        {
+
+                            Console.WriteLine($"{count}, {maxCount}");
+
+                            // 몬스터 생성
+                            for (int i = 0; i < maxCount - count; i++)
+                            {
+                                Monster monster = ObjectManager.Instance.Add<Monster>();
+                                monster.Init(spawnData.monsterid);
+                                monster.SpawnID = spawnData.spawnid;
+                                //monster.cellpos = new vector2int(5, 5);
+                                Vector2Int pos = new Vector2Int(spawnData.x, spawnData.y);
+                                bool randomPos = false;
+                                if (pos.x == -1 && pos.y == -1)
+                                    randomPos = true;
+                                EnterGame(monster, randomPos, pos);
+                            }
+                        }
+                    }
+                }
+
                 //foreach (Monster monster in _monsters.Values)
                 //{
                 //    monster.Update();
@@ -120,7 +165,7 @@ namespace MMO_Server.Game
                 //    projectile.Update();
                 //}
 
-                Flush();
+                
             }
             catch (Exception e)
             {
@@ -129,7 +174,7 @@ namespace MMO_Server.Game
         }
 
         Random _rand = new Random();
-        public void EnterGame(GameObject gameObject, bool randomPos)
+        public void EnterGame(GameObject gameObject, bool randomPos, Vector2Int pos)
         {
             if (gameObject == null)
                 return;
@@ -146,6 +191,13 @@ namespace MMO_Server.Game
                         gameObject.CellPos = respawnPos;
                         break;
                     }
+                }
+            }
+            else
+            {
+                if (Map.Find(pos) == null)
+                {
+                    gameObject.CellPos = pos;
                 }
             }
 
@@ -407,6 +459,19 @@ namespace MMO_Server.Game
             }
 
             return zones.ToList();
+        }
+
+        public int GetMonsterCount(Func<Monster, bool> condition)
+        {
+            int count = 0;
+
+            foreach (Monster monster in _monsters.Values)
+            {
+                if (condition.Invoke(monster))
+                    count++;
+            }
+
+            return count;
         }
     }
 }

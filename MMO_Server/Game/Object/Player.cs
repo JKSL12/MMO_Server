@@ -28,6 +28,11 @@ namespace MMO_Server.Game
             Vision = new VisionCube(this);
         }
 
+        public void Update()
+        {
+
+        }
+
         public override void OnDamaged(GameObject attacker, int damage, bool critical = false)
         {
             base.OnDamaged(attacker, damage, critical);           
@@ -35,7 +40,17 @@ namespace MMO_Server.Game
 
         public override void OnDead(GameObject attacker)
         {
+            GameRoom room = Room;
+
             base.OnDead(attacker);
+
+            Stat.Hp = Stat.MaxHp;
+            PosInfo.State = CreatureState.Idle;
+            PosInfo.MoveDir = MoveDir.Down;
+            PosInfo.PosX = 0;
+            PosInfo.PosY = 0;
+
+            room.EnterGame(this, randomPos: true, new Vector2Int(-1, -1));
         }
 
         public void OnleaveGame()

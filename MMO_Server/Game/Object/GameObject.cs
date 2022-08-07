@@ -160,13 +160,7 @@ namespace MMO_Server.Game
             room.LeaveGame(Id);
             //room.Push(room.LeaveGame, Id);
 
-            Stat.Hp = Stat.MaxHp;
-            PosInfo.State = CreatureState.Idle;
-            PosInfo.MoveDir = MoveDir.Down;
-            PosInfo.PosX = 0;
-            PosInfo.PosY = 0;
-
-            room.EnterGame(this, randomPos:true);
+            
             //room.Push(room.EnterGame, this);
         }
 

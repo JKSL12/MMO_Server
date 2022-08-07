@@ -28,7 +28,7 @@ namespace MMO_Server.Game
 
                     GameRoom enterroom = GameLogic.Instance.Find(2);
                     player.MapId = 2;
-                    enterroom.Push(enterroom.EnterGame, player, true);
+                    enterroom.Push(enterroom.EnterGame, player, true, new Vector2Int(-1, -1));
 
                     return;
                 }
@@ -93,7 +93,7 @@ namespace MMO_Server.Game
                         arrow.PosInfo.PosX = player.PosInfo.PosX;
                         arrow.PosInfo.PosY = player.PosInfo.PosY;
                         arrow.Speed = skillData.projectile.speed;
-                        EnterGame(arrow, false);
+                        EnterGame(arrow, false, new Vector2Int(arrow.PosInfo.PosX, arrow.PosInfo.PosY));
                     }
                     break;
             }

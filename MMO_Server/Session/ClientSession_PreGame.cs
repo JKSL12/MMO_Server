@@ -142,7 +142,7 @@ namespace MMO_Server
             GameLogic.Instance.Push(() =>
             {
                 GameRoom room = GameLogic.Instance.Find(MyPlayer.Info.PosInfo.MapId);
-                room.Push(room.EnterGame, MyPlayer, true);
+                room.Push(room.EnterGame, MyPlayer, true, new Vector2Int( -1, -1 ));
             });
         }
 

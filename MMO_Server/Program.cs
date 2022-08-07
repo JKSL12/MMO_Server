@@ -120,10 +120,12 @@ namespace MMO_Server
 
             foreach (MapData mapData in DataManager.MapDict.Values)
             {
-                GameLogic.Instance.Push(() =>
-                {
-                    GameRoom room = GameLogic.Instance.Add(mapData.name);
-                });
+                //GameLogic.Instance.Push(() =>
+                //{
+                //    GameRoom room = GameLogic.Instance.Add(mapData);
+                //});
+
+                GameRoom room = GameLogic.Instance.Add(mapData);
             }
 
             //GameLogic.Instance.Push(() =>
@@ -141,6 +143,7 @@ namespace MMO_Server
             IpAddress = ipAddr.ToString();
             
             _listener.Init(endPoint, () => { return SessionManager.Instance.Generate(); });
+
             Console.WriteLine("Listening...");
 
             StartServerInfoTask();

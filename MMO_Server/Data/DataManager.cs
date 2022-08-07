@@ -19,6 +19,7 @@ namespace MMO_Server.Data
         public static Dictionary<int, Data.MonsterData> MonsterDict { get; private set; } = new Dictionary<int, Data.MonsterData>();
         public static Dictionary<int, Data.MapData> MapDict { get; private set; } = new Dictionary<int, Data.MapData>();
         public static Dictionary<int, Data.EventData> EventDict { get; private set; } = new Dictionary<int, Data.EventData>();
+        public static Dictionary<int, Data.MonsterSpawnData> MonsterSpawnDict { get; private set; } = new Dictionary<int, Data.MonsterSpawnData>();
 
         public static void LoadData()
         {
@@ -28,6 +29,7 @@ namespace MMO_Server.Data
             MonsterDict = LoadJson<Data.MonsterLoader, int, Data.MonsterData>("MonsterData").MakeDict();
             MapDict = LoadJson<Data.MapLoader, int, Data.MapData>("MapData").MakeDict();
             EventDict = LoadJson<Data.EventLoader, int, Data.EventData>("EventData").MakeDict();
+            MonsterSpawnDict = LoadJson<Data.MonsterSpawnLoader, int, Data.MonsterSpawnData>("MonsterSpawnData").MakeDict();
         }
 
         static Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

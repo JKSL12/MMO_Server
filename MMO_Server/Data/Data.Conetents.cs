@@ -220,4 +220,41 @@ namespace MMO_Server.Data
     }
 
     #endregion
+
+    #region 몬스터스폰
+
+    [Serializable]
+    public class SpawnData
+    {
+        public int spawnid;
+        public int monsterid;
+        public int count;
+        public int x;
+        public int y;
+    }
+
+    [Serializable]
+    public class MonsterSpawnData
+    {
+        public int mapid;
+        public List<SpawnData> infos;
+    }
+
+    [Serializable]
+    public class MonsterSpawnLoader : ILoader<int, MonsterSpawnData>
+    {
+        public List<MonsterSpawnData> spawns = new List<MonsterSpawnData>();
+
+        public Dictionary<int, MonsterSpawnData> MakeDict()
+        {
+            Dictionary<int, MonsterSpawnData> dict = new Dictionary<int, MonsterSpawnData>();
+            foreach (MonsterSpawnData spawn in spawns)
+            {
+                dict.Add(spawn.mapid, spawn);
+            }
+            return dict;
+        }
+    }
+
+    #endregion
 }

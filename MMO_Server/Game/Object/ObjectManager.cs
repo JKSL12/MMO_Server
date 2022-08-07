@@ -13,6 +13,17 @@ namespace MMO_Server.Game
         Dictionary<int, Player> _players = new Dictionary<int, Player>();
         int _counter = 0;
 
+        public void PlayerUpdate()
+        {
+            foreach( Player player in _players.Values )
+            {
+                if( player != null )
+                {
+                    player.Update();
+                }
+            }
+        }
+
         public T Add<T>() where T : GameObject, new()
         {
             T gameObject = new T();

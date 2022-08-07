@@ -279,27 +279,34 @@ namespace MMO_Server.Game
             //string mapName = "Map_" + mapId.ToString("000");
             mapName = "Map_" + mapName;
 
-            string text = File.ReadAllText($"{pathPrefix}/{mapName}.txt");
-
-            StringReader reader = new StringReader(text);
-
-            MinX = int.Parse(reader.ReadLine());
-            MaxX = int.Parse(reader.ReadLine());
-            MinY = int.Parse(reader.ReadLine());
-            MaxY = int.Parse(reader.ReadLine());
-
-            int xCount = MaxX - MinX + 1;
-            int yCount = MaxY - MinY + 1;
-            _collision = new int[yCount, xCount];
-            _objects = new GameObject[yCount, xCount];
-
-            for (int y = 0; y < yCount; y++)
+            try
             {
-                string line = reader.ReadLine();
-                for (int x = 0; x < xCount; x++)
+                string text = File.ReadAllText($"{pathPrefix}/{mapName}.txt");
+
+                StringReader reader = new StringReader(text);
+
+                MinX = int.Parse(reader.ReadLine());
+                MaxX = int.Parse(reader.ReadLine());
+                MinY = int.Parse(reader.ReadLine());
+                MaxY = int.Parse(reader.ReadLine());
+
+                int xCount = MaxX - MinX + 1;
+                int yCount = MaxY - MinY + 1;
+                _collision = new int[yCount, xCount];
+                _objects = new GameObject[yCount, xCount];
+
+                for (int y = 0; y < yCount; y++)
                 {
-                    _collision[y, x] = Int32.Parse(line[x].ToString());                    
-                }                
+                    string line = reader.ReadLine();
+                    for (int x = 0; x < xCount; x++)
+                    {
+                        _collision[y, x] = Int32.Parse(line[x].ToString());
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                ;
             }
         }
 
