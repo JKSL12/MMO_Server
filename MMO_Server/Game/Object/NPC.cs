@@ -7,15 +7,15 @@ using System.Text;
 
 namespace MMO_Server.Game
 {
-    public class Monster : GameObject
+    public class NPC : GameObject
     {
         public int TemplateId { get; private set; }
         public bool Force { get; set; }
         public int SpawnID { get; set; }
 
-        public Monster()
+        public NPC()
         {
-            ObjectType = GameObjectType.Monster;           
+            ObjectType = GameObjectType.Npc;           
         }
 
         public void Init(int templateId)
@@ -34,6 +34,7 @@ namespace MMO_Server.Game
         IJob _job;
         public override void Update()
         {
+            //Console.WriteLine($"npc update {TemplateId}, {PosInfo.MapId}, {PosInfo.PosX}, {PosInfo.PosY}");
             switch(State)
             {
                 case CreatureState.Idle:
@@ -61,6 +62,8 @@ namespace MMO_Server.Game
         long _nextSearchTick = 0;
         protected virtual void UpdateIdle()
         {
+            return;
+
             if (_nextSearchTick > Environment.TickCount)
                 return;
 
@@ -191,6 +194,11 @@ namespace MMO_Server.Game
 
         }
 
+        public override void OnDamaged(GameObject attacker, int damage, bool critical = false)
+        {
+            return;
+        }
+
         public override void OnDead(GameObject attacker)
         {
             if (_job != null)
@@ -203,41 +211,22 @@ namespace MMO_Server.Game
 
             GameObject owner = attacker.GetOwner();
 
-            if(owner.ObjectType == GameObjectType.Player)
-            {
-                Player player = (Player)owner;
+            //if(owner.ObjectType == GameObjectType.Player)
+            //{
+            //    Player player = (Player)owner;
 
-                Int32 exp = Stat.TotalExp;
+            //    Int32 exp = Stat.TotalExp;
 
-                DbTransaction.IncreaseExp(player, exp, Room);
+            //    DbTransaction.IncreaseExp(player, exp, Room);
 
-                RewardData rewardData = GetRandomReward();
-                if( rewardData != null)
-                {                    
-                    DbTransaction.RewardPlayer(player, rewardData, Room);
-                }
-            }            
-        }
+            //    RewardData rewardData = GetRandomReward();
+            //    if( rewardData != null)
+            //    {                    
+            //        DbTransaction.RewardPlayer(player, rewardData, Room);
+            //    }
+            //}            
+        }      
 
         
-
-        RewardData GetRandomReward()
-        {
-            MonsterData monsterData = null;
-            DataManager.MonsterDict.TryGetValue(TemplateId, out monsterData);
-
-            int rand = new Random().Next(0, 101);
-            int sum = 0;
-            foreach(RewardData rewardData in monsterData.rewards)
-            {
-                sum += rewardData.probability;
-                if( rand <= sum)
-                {
-                    return rewardData;
-                }
-            }
-
-            return null;
-        }
     }
 }

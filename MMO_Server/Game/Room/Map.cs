@@ -238,6 +238,22 @@ namespace MMO_Server.Game
                     }
                 }
             }          
+            else if( type == GameObjectType.Npc )
+            {
+                NPC npc = (NPC)gameObject;
+                if (npc != null)
+                {
+                    Zone now = gameObject.Room.GetZone(gameObject.CellPos);
+                    Zone after = gameObject.Room.GetZone(dest);
+                    if (now != after)
+                    {
+                        //if (now != null)
+                        now.Npcs.Remove(npc);
+                        //if (after != null)
+                        after.Npcs.Add(npc);
+                    }
+                }
+            }
 
             posInfo.PosX = dest.x;
             posInfo.PosY = dest.y;

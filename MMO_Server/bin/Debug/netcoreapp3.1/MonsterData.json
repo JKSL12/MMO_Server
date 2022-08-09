@@ -3,6 +3,8 @@
     {
       "id": "1",
       "name": "도플갱어",
+      "prefabs": "Monster",
+      "npc": "false",
       "stat": {
         "level": "1",
         "maxHp": "20",
@@ -36,6 +38,21 @@
           "itemId": "200",
           "count": "5"
         }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "모레",
+      "prefabs": "Mole",
+      "npc": "true",
+      "stat": {
+        "level": "1",
+        "maxHp": "20",
+        "attack": "5",
+        "speed": "5.0",
+        "totalExp": "10"
+      },
+      "rewards": [
       ]
     }
   ]

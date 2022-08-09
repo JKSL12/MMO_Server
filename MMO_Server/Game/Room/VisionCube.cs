@@ -60,6 +60,17 @@ namespace MMO_Server.Game.Room
                         continue;
                     objects.Add(projectile);
                 }
+
+                foreach (NPC npc in zone.Npcs)
+                {
+                    int dx = npc.CellPos.x - cellPos.x;
+                    int dy = npc.CellPos.y - cellPos.y;
+                    if (Math.Abs(dx) > GameRoom.VisionCells)
+                        continue;
+                    if (Math.Abs(dy) > GameRoom.VisionCells)
+                        continue;
+                    objects.Add(npc);
+                }
             }
 
             return objects;
@@ -81,6 +92,25 @@ namespace MMO_Server.Game.Room
                 {
                     ObjectInfo info = new ObjectInfo();
                     info.MergeFrom(gameObject.Info);
+
+                    GameObjectType type = ObjectManager.GetObjectTypeById(gameObject.Id);
+
+                    if( type == GameObjectType.Monster )
+                    {
+                        Monster monster = gameObject as Monster;
+
+                        info.TemplateId = monster.TemplateId;
+                    }
+                    else if( type == GameObjectType.Npc )
+                    {
+                        NPC npc = gameObject as NPC;
+
+                        info.TemplateId = npc.TemplateId;
+                    }
+
+
+                    Console.WriteLine($"npc spawn 2 : {type}, { info.TemplateId }");
+
                     spawnPacket.Objects.Add(info);
                 }
 

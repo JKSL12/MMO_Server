@@ -18,6 +18,7 @@ namespace MMO_Server.Game
         Dictionary<int, Player> _players = new Dictionary<int, Player>();
         Dictionary<int, Monster> _monsters = new Dictionary<int, Monster>();
         Dictionary<int, Projectile> _projectiles = new Dictionary<int, Projectile>();
+        Dictionary<int, NPC> _npcs = new Dictionary<int, NPC>();
 
         public Zone[,] Zones { get; private set; }
         public int ZoneCells { get; private set; }
@@ -127,30 +128,68 @@ namespace MMO_Server.Game
                 if (monsterSpawnData != null)
                 {
                     int count = 0;
-
+                                        
                     foreach (SpawnData spawnData in monsterSpawnData.infos)
                     {
-                        count = GetMonsterCount(m => m.Force == false && m.SpawnID == spawnData.spawnid);
+                        
+                        MonsterData monsterData = null;
+                        DataManager.MonsterDict.TryGetValue(spawnData.monsterid, out monsterData);
+
+                        if (monsterData == null) continue;
+
+                        if (monsterData.npc == true)
+                        {
+                            count = GetNpcCount(m => m.Force == false && m.SpawnID == spawnData.spawnid);
+                        }
+                        else
+                        {
+                            count = GetMonsterCount(m => m.Force == false && m.SpawnID == spawnData.spawnid);
+                        }
 
                         int maxCount = spawnData.count;
 
                         if (count < maxCount)
                         {
-
-                            Console.WriteLine($"{count}, {maxCount}");
-
                             // 몬스터 생성
                             for (int i = 0; i < maxCount - count; i++)
-                            {
-                                Monster monster = ObjectManager.Instance.Add<Monster>();
-                                monster.Init(spawnData.monsterid);
-                                monster.SpawnID = spawnData.spawnid;
-                                //monster.cellpos = new vector2int(5, 5);
-                                Vector2Int pos = new Vector2Int(spawnData.x, spawnData.y);
-                                bool randomPos = false;
-                                if (pos.x == -1 && pos.y == -1)
-                                    randomPos = true;
-                                EnterGame(monster, randomPos, pos);
+                            {                                                             
+                                if (monsterData.npc == true)
+                                {                                   
+                                    NPC npc = ObjectManager.Instance.Add<NPC>();
+                                    npc.Init(spawnData.monsterid);
+                                    npc.SpawnID = spawnData.spawnid;
+                                    npc.Npc = true;
+                                    npc.MapId = RoomId;
+
+                                    npc.Info.PosInfo.State = CreatureState.Idle;
+                                    npc.Info.PosInfo.MoveDir = MoveDir.Down;
+
+                                    //monster.cellpos = new vector2int(5, 5);
+                                    Vector2Int pos = new Vector2Int(spawnData.x, spawnData.y);
+                                    bool randomPos = false;
+                                    if (pos.x == -1 && pos.y == -1)
+                                        randomPos = true;
+                                    EnterGame(npc, randomPos, pos);
+
+                                    Console.WriteLine($"spawn npc {RoomId}, {monsterData.name}, {npc.ObjectType}, {spawnData.monsterid}, {npc.Id}");
+                                }
+                                else
+                                {
+                                    Monster monster = ObjectManager.Instance.Add<Monster>();
+                                    monster.Init(spawnData.monsterid);
+                                    monster.SpawnID = spawnData.spawnid;
+                                    monster.MapId = RoomId;
+
+                                    monster.Info.PosInfo.State = CreatureState.Idle;
+                                    monster.Info.PosInfo.MoveDir = MoveDir.Down;
+
+                                    //monster.cellpos = new vector2int(5, 5);
+                                    Vector2Int pos = new Vector2Int(spawnData.x, spawnData.y);
+                                    bool randomPos = false;
+                                    if (pos.x == -1 && pos.y == -1)
+                                        randomPos = true;
+                                    EnterGame(monster, randomPos, pos);
+                                }
                             }
                         }
                     }
@@ -261,10 +300,37 @@ namespace MMO_Server.Game
                 projectile.Update();
                 //Map.ApplyMove(projectile, new Vector2Int(projectile.CellPos.x, projectile.CellPos.y));
             }
+            else if (type == GameObjectType.Npc)
+            {
+                NPC npc = gameObject as NPC;
+                _npcs.Add(gameObject.Id, npc);
+                npc.Room = this;
+
+                GetZone(npc.CellPos).Npcs.Add(npc);
+                npc.Update();
+            }
 
             {
                 S_Spawn spawnPacket = new S_Spawn();
-                spawnPacket.Objects.Add(gameObject.Info);
+
+                ObjectInfo info = new ObjectInfo();
+                info.MergeFrom(gameObject.Info);
+
+                if (type == GameObjectType.Monster)
+                {
+                    Monster monster = gameObject as Monster;
+
+                    info.TemplateId = monster.TemplateId;
+                }
+                else if(type == GameObjectType.Npc )
+                {
+                    NPC npc = gameObject as NPC;
+
+                    info.TemplateId = npc.TemplateId;
+                }
+
+                spawnPacket.Objects.Add(info);
+
                 //foreach (Player p in _players.Values)
                 //{
                 //    if (p.Id != gameObject.Id)
@@ -321,6 +387,19 @@ namespace MMO_Server.Game
                 //GetZone(projectile.CellPos).Projectiles.Remove(projectile);
 
                 projectile.Room = null;
+            }
+            else if (type == GameObjectType.Npc)
+            {
+                NPC npc = null;
+                if (_npcs.Remove(objectId, out npc) == false)
+                    return;
+
+                Map.ApplyLeave(npc);
+
+                cellPos = npc.CellPos;
+                //GetZone(monster.CellPos).Monsters.Remove(monster);
+
+                npc.Room = null;
             }
             else
             {
@@ -468,6 +547,19 @@ namespace MMO_Server.Game
             foreach (Monster monster in _monsters.Values)
             {
                 if (condition.Invoke(monster))
+                    count++;
+            }
+
+            return count;
+        }
+
+        public int GetNpcCount(Func<NPC, bool> condition)
+        {
+            int count = 0;
+
+            foreach (NPC npc in _npcs.Values)
+            {
+                if (condition.Invoke(npc))
                     count++;
             }
 

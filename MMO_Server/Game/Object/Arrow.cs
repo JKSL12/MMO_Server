@@ -39,7 +39,10 @@ namespace MMO_Server.Game
                 GameObject target = Room.Map.Find(destPos);
                 if(target != null)
                 {
-                    target.OnDamaged(this, Data.damage + Owner.TotalAttack);
+                    if (target as NPC == null)
+                    {
+                        target.OnDamaged(this, Data.damage + Owner.TotalAttack);
+                    }
                 }
                 
                 //Room.LeaveGame(Id);

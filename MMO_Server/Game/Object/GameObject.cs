@@ -19,6 +19,8 @@ namespace MMO_Server.Game
         public PositionInfo PosInfo { get; private set; } = new PositionInfo();
         public StatInfo Stat { get; private set; } = new StatInfo();
 
+        public bool Npc { get; set; } = false;
+
         public virtual int TotalAttack { get { return Stat.Attack; } }
         public virtual int TotalDefence { get { return 0; } }
 

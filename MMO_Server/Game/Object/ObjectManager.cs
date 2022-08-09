@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.Protocol;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MMO_Server.Game
@@ -15,7 +16,7 @@ namespace MMO_Server.Game
 
         public void PlayerUpdate()
         {
-            foreach( Player player in _players.Values )
+            foreach( Player player in _players.Values.ToList() )
             {
                 if( player != null )
                 {

@@ -1,6 +1,18 @@
 {
   "spawns": [
     {
+      "mapid": "1",
+      "infos": [
+        {
+          "spawnid": "1",
+          "monsterid": "2",
+          "count": "1",
+          "x": "0",
+          "y": "0"
+        }
+      ]
+    },
+    {
       "mapid": "2",
       "infos": [
         {
